@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UNSILENCED — A Study on Black Women's Sexuality, Freedom & Liberation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --nude-cream: #F5EDE3;
+    --nude-blush: #E8D5C4;
+    --nude-sand: #D4B9A0;
+    --nude-warm: #C4A088;
+    --brown-light: #8B6B52;
+    --brown-mid: #6B4F3A;
+    --brown-deep: #4A3328;
+    --brown-rich: #2C1A12;
+    --pink-pale: #F0D8D8;
+    --pink-blush: #E0B8B8;
+    --pink-rose: #C88E8E;
+    --pink-deep: #A06060;
+    --pink-dark: #7A3A3A;
+    --accent-gold: #C4956A;
+    --accent-rust: #9B5E3A;
+    --text-primary: #2C1A12;
+    --text-secondary: #6B4F3A;
+    --text-muted: #8B6B52;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--nude-cream);
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(245, 237, 227, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--nude-sand);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    color: var(--brown-deep);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--pink-dark); }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    background: linear-gradient(160deg, var(--nude-cream) 0%, var(--pink-pale) 50%, var(--nude-blush) 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,142,142,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -10%; left: -5%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,149,106,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink-rose);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--brown-deep);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--pink-dark);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 1.5rem auto 3rem;
+    line-height: 1.6;
+  }
+
+  .hero-scroll {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero-scroll-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, var(--nude-sand), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    max-width: 100%; padding: 0;
+    background: var(--brown-deep);
+    color: var(--nude-cream);
+  }
+
+  .timeline-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pink-rose);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--pink-rose), var(--accent-gold), var(--pink-rose));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.4rem; top: 0.4rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--pink-rose);
+    border: 2px solid var(--brown-deep);
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .timeline-item:hover::before {
+    transform: scale(1.4);
+    background: var(--accent-gold);
+  }
+
+  .timeline-era {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-event {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--nude-cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--nude-sand);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ARCHIVE */
+  .archive-section {
+    background: var(--nude-blush);
+    max-width: 100%; padding: 0;
+  }
+
+  .archive-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .scripts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .script-card {
+    background: var(--nude-cream);
+    border: 1px solid var(--nude-sand);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .script-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(44, 26, 18, 0.12);
+  }
+
+  .card-stripe { height: 4px; }
+  .card-stripe.wound  { background: linear-gradient(90deg, var(--pink-rose), var(--pink-deep)); }
+  .card-stripe.gaze   { background: linear-gradient(90deg, var(--brown-mid), var(--accent-rust)); }
+  .card-stripe.today  { background: linear-gradient(90deg, var(--pink-blush), var(--pink-rose)); }
+  .card-stripe.faith  { background: linear-gradient(90deg, var(--accent-gold), var(--brown-light)); }
+  .card-stripe.father { background: linear-gradient(90deg, var(--nude-warm), var(--brown-mid)); }
+  .card-stripe.belief { background: linear-gradient(90deg, var(--pink-dark), var(--brown-deep)); }
+  .card-stripe.girls  { background: linear-gradient(90deg, var(--pink-blush), var(--pink-rose)); }
+  .card-stripe.prep   { background: linear-gradient(90deg, var(--brown-light), var(--accent-gold)); }
+  .card-stripe.fashion { background: linear-gradient(90deg, var(--nude-warm), var(--pink-rose)); }
+  .card-stripe.enough { background: linear-gradient(90deg, var(--pink-dark), var(--accent-rust)); }
+
+  .card-content { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+
+  .card-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .card-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .card-hook {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .card-opening {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    border-left: 2px solid var(--pink-blush);
+    padding-left: 1rem;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .card-cta {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pink-dark);
+    border-bottom: 1px solid var(--pink-blush);
+    padding-bottom: 2px;
+  }
+
+  /* SCRIPT OVERLAY */
+  .script-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(44, 26, 18, 0.85);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+  }
+
+  .script-overlay.active { display: block; }
+
+  .script-modal {
+    max-width: 780px;
+    margin: 4rem auto;
+    background: var(--nude-cream);
+    min-height: calc(100vh - 8rem);
+    padding: 4rem;
+    position: relative;
+  }
+
+  .modal-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    margin: -2rem -2rem 1rem 0;
+    background: var(--nude-blush);
+    border: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 10;
+  }
+
+  .modal-close:hover { background: var(--nude-sand); }
+
+  .modal-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pink-rose);
+    margin-bottom: 1rem;
+    clear: both;
+  }
+
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--brown-deep);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--nude-sand);
+  }
+
+  .script-body h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink-rose);
+    margin: 3rem 0 1rem;
+  }
+
+  .script-body p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .script-body p strong {
+    font-weight: 700;
+    color: var(--brown-rich);
+    font-size: 1.18rem;
+    letter-spacing: 0.01em;
+  }
+
+  .script-body p em {
+    font-style: italic;
+    color: var(--brown-mid);
+  }
+
+  .script-body .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--pink-dark);
+    border-left: 3px solid var(--pink-rose);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    line-height: 1.4;
+    background: var(--pink-pale);
+  }
+
+  /* MANIFESTO */
+  .manifesto-section {
+    max-width: 100%;
+    background: var(--brown-rich);
+    padding: 0;
+  }
+
+  .manifesto-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 8rem 2rem;
+    text-align: center;
+  }
+
+  .manifesto-word {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--nude-cream);
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .manifesto-word.visible { opacity: 1; transform: translateY(0); }
+  .manifesto-word em { font-style: italic; color: var(--pink-rose); }
+
+  .manifesto-divider {
+    width: 60px; height: 1px;
+    background: var(--pink-rose);
+    margin: 3rem auto;
+    opacity: 0.5;
+  }
+
+  .manifesto-truth {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--nude-sand);
+    line-height: 1.8;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.3s;
+  }
+
+  .manifesto-truth.visible { opacity: 1; }
+
+  /* ABOUT */
+  .about-section { background: var(--nude-cream); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--brown-deep);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+
+  .about-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .themes-list { list-style: none; }
+
+  .themes-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--nude-sand);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .themes-list li:last-child { border-bottom: none; }
+
+  .theme-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--pink-rose);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .theme-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--brown-deep);
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* RESOURCES PAGE */
+  .resources-page {
+    padding-top: 6rem;
+    min-height: calc(100vh - 80px);
+    background: var(--nude-cream);
+  }
+
+  .resources-hero {
+    background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-rich) 100%);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .resources-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: var(--nude-cream);
+    margin-bottom: 1rem;
+  }
+
+  .resources-hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--nude-sand);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .resources-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--nude-blush);
+    border-bottom: 1px solid var(--nude-sand);
+    overflow-x: auto;
+  }
+
+  .res-tab {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 1.25rem 2rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .res-tab.active, .res-tab:hover {
+    color: var(--pink-dark);
+    border-bottom-color: var(--pink-dark);
+    background: rgba(122, 58, 58, 0.04);
+  }
+
+  .resources-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .res-panel { display: none; }
+  .res-panel.active { display: block; }
+
+  .res-category-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pink-rose);
+    margin-bottom: 2rem;
+  }
+
+  .res-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .res-item {
+    background: var(--nude-blush);
+    border: 1px solid var(--nude-sand);
+    border-radius: 2px;
+    padding: 1.75rem 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .res-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(44,26,18,0.08);
+  }
+
+  .res-item-type {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .res-item-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .res-item-author {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+
+  .res-item-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* PERSISTENT TAGLINE FOOTER */
+  .tagline-bar {
+    background: var(--brown-rich);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--brown-deep);
+  }
+
+  .tagline-bar p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--nude-sand);
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+  }
+
+  .tagline-bar em {
+    color: var(--pink-rose);
+    font-style: normal;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown-rich);
+    color: var(--nude-sand);
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+  }
+
+  footer .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--nude-cream);
+    margin-bottom: 0.5rem;
+  }
+
+  footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--nude-sand);
+  }
+
+  footer .footer-mono {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--brown-light);
+    text-transform: uppercase;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.55rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .script-modal { padding: 2rem; margin: 0; min-height: 100vh; }
+    .scripts-grid { grid-template-columns: 1fr; }
+    .res-tab { padding: 1rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Unsilenced</span>
+  <ul class="nav-links">
+    <li><a href="#" onclick="event.preventDefault(); showPage('home'); smoothScrollTo('#timeline')">Timeline</a></li>
+    <li><a href="#" onclick="event.preventDefault(); showPage('home'); smoothScrollTo('#archive')">The Scripts</a></li>
+    <li><a href="#" onclick="event.preventDefault(); showPage('home'); smoothScrollTo('#manifesto')">Manifesto</a></li>
+    <li><a href="#" onclick="event.preventDefault(); showPage('home'); smoothScrollTo('#about')">About</a></li>
+    <li><a href="#" onclick="event.preventDefault(); showPage('resources')" id="nav-resources">Resources</a></li>
+  </ul>
+</nav>
+
+<!-- ====== HOME PAGE ====== -->
+<div class="page active" id="page-home">
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">An Independent Study</p>
+  <h1 class="hero-title">UN<em>SILENCED</em></h1>
+  <p class="hero-subtitle">A study on Black women's sexuality, freedom, pleasure, and the radical right to exist and embody liberation.</p>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section" id="timeline">
+  <div class="timeline-inner">
+    <p class="section-label">Historical Through-Line</p>
+    <h2 class="section-title" style="color: var(--nude-cream);">500+ Years.<br/>One Lie.<br/>Still Here.</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <p class="timeline-era">9th Century B.C. · Biblical Origins</p>
+        <p class="timeline-event">The Name: Jezebel, Queen of Israel</p>
+        <p class="timeline-desc">A Phoenician princess depicted in the books of Kings as deceitful and immoral. Her name becomes synonymous with feminine wickedness — the original template that later colonists would reach for.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">Late 1500s · Elizabethan Era</p>
+        <p class="timeline-event">The "Lusty Moor" — A Colonial Tool</p>
+        <p class="timeline-desc">English colonists adopt the image of the "lusty Moor" to argue Black people are subhuman. The characterization provides ideological cover for enslavement before it even begins in the Americas.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">Early 1630s · Slavery Era</p>
+        <p class="timeline-event">The Stereotype Takes Root in the Colonies</p>
+        <p class="timeline-desc">European travelers misrepresent African dress and social customs as evidence of uncontrolled sexual lust — giving the myth a veneer of "observation."</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">1600s–1800s · Slavery Era</p>
+        <p class="timeline-event">The Jezebel Myth Is Built to Protect Rapists</p>
+        <p class="timeline-desc">White enslavers construct the Jezebel narrative to justify the systematic rape of enslaved Black women. If she is "always willing," there is no crime. The 18th century adds a pseudo-scientific layer. The law agrees. This is the blueprint.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">1800s · Antebellum South</p>
+        <p class="timeline-event">The Placage System & Forced Reproduction</p>
+        <p class="timeline-desc">Wealthy white Southerners formalize exploitation through the Placage system. Enslaved Black women are forced to be "breeders" for future labor supply; their resulting high birth rates are then weaponized as "proof" of sexual promiscuity.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">1800s · Victorian Era</p>
+        <p class="timeline-event">The Two-Tiered Standard Is Engineered</p>
+        <p class="timeline-desc">White women are elevated onto pedestals of purity and innocence. Black women are deliberately excluded. While white femininity is legally and socially protected, Black women's bodies remain public property — the contrast is not incidental, it is designed.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">1810–1815 · London & Paris</p>
+        <p class="timeline-event">Sarah Baartman Displayed for White Audiences</p>
+        <p class="timeline-desc">The Khoi woman known as Sarah Baartman is exhibited in European freak shows. White audiences pay to gawk, to touch. Her body becomes spectacle — the white gaze made literal.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">1865–Present · Post-Emancipation</p>
+        <p class="timeline-event">The System Evolves, The Lie Persists</p>
+        <p class="timeline-desc">Mass incarceration, redlining, economic exclusion, education disparities — new mechanisms sever Black fathers from families. Black women remain unprotected in courts, in churches, online and in communities. The Jezebel stereotype adapts to each era but never disappears.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-era">Today · 2026</p>
+        <p class="timeline-event">The Jezebel in the Current Day</p>
+        <p class="timeline-desc">She is in dating apps, music videos, classrooms, clothing, and in the questions asked before "are you okay?" She lives in the way Black women police themselves — in the bedroom, the boardroom, and their own minds. The stereotype is over 500 years old. It is still doing its job.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE -->
+<div class="archive-section" id="archive">
+  <div class="archive-inner">
+    <p class="section-label">The Archive</p>
+    <h2 class="section-title" style="color: var(--brown-deep);">Ten Scripts.<br/>One Study.</h2>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--text-secondary); max-width:560px; font-style:italic;">Click any card to read the full script — nothing cut, nothing softened. These are the words as they were written to be spoken.</p>
+
+    <div class="scripts-grid">
+
+      <!-- CARD 1 -->
+      <div class="script-card" onclick="openScript('s1')">
+        <div class="card-stripe wound"></div>
+        <div class="card-content">
+          <p class="card-number">Script 01 · The Historical Wound</p>
+          <h3 class="card-title">The Jezebel Stereotype — A Historical Wound on Black Women's Sexuality</h3>
+          <p class="card-subtitle">From the auction block to the internal algorithm</p>
+          <p class="card-hook">Before you can name it, you have to know where it started. This script traces the deliberate construction of a lie — one designed to make violation invisible.</p>
+          <p class="card-opening">"When you hear the phrase 'sexual liberation,' who do you picture? And here's the real question: is she Black?"</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="script-card" onclick="openScript('s2')">
+        <div class="card-stripe gaze"></div>
+        <div class="card-content">
+          <p class="card-number">Script 02 · The White Gaze</p>
+          <h3 class="card-title">The White Gaze — How Whiteness Polices Black Women's Sexuality</h3>
+          <p class="card-subtitle">Don't let old white lies police Black women</p>
+          <p class="card-hook">It's not just external. The white gaze doesn't stay outside — it moves in. This script asks you to examine who is watching when you're at your most intimate.</p>
+          <p class="card-opening">"When you think about your own sexuality, whose voice do you hear? Is it yours — or is it theirs?"</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="script-card" onclick="openScript('s3')">
+        <div class="card-stripe today"></div>
+        <div class="card-content">
+          <p class="card-number">Script 03 · The Jezebel Today</p>
+          <h3 class="card-title">The Jezebel Today — How an Old Lie Still Shapes Our Reality</h3>
+          <p class="card-subtitle">She evolved. She didn't leave.</p>
+          <p class="card-hook">She's not in the history books anymore. She's in the dating apps, the double standards, the bedroom, the boardroom. This script is about recognizing her in the present tense.</p>
+          <p class="card-opening">"She's in the way people swipe left. She's in the whispers at family gatherings. She's in the back of your mind when you're deciding whether to text him back."</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="script-card" onclick="openScript('s4')">
+        <div class="card-stripe faith"></div>
+        <div class="card-content">
+          <p class="card-number">Script 04 · Faith & The Stereotype</p>
+          <h3 class="card-title">Amen to What, Exactly? — How Religion Shaped the Jezebel Stereotype</h3>
+          <p class="card-subtitle">Scripture weaponized. Faith reclaimed.</p>
+          <p class="card-hook">The church was supposed to be the safest place. This script asks why it so often became another room where Black girls' bodies were policed instead of protected.</p>
+          <p class="card-opening">"Think about the last time someone called a girl 'fast.' Were you at school? At a family cookout? At church? And did anyone stop to ask — fast compared to what?"</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="script-card" onclick="openScript('s5')">
+        <div class="card-stripe father"></div>
+        <div class="card-content">
+          <p class="card-number">Script 05 · The Empty Chair</p>
+          <h3 class="card-title">The Empty Chair — Black Fatherhood & the Jezebel Stereotype</h3>
+          <p class="card-subtitle">The breaking of Black family households — and what it cost her</p>
+          <p class="card-hook">The absence of Black fathers wasn't random. It was engineered. This script connects that history to what happens inside a Black daughter when the first man in her life is gone — or present, but broken.</p>
+          <p class="card-opening">"Think about the first man who ever made you feel safe. Now think about all the girls who never had that person there."</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="script-card" onclick="openScript('s6')">
+        <div class="card-stripe belief"></div>
+        <div class="card-content">
+          <p class="card-number">Script 06 · When No One Believed Her</p>
+          <h3 class="card-title">When No One Believed Her — The Raping of Black Women</h3>
+          <p class="card-subtitle">The blueprint of rape culture</p>
+          <p class="card-hook">The Jezebel stereotype wasn't a side effect of rape culture. It was the original justification for it. This script traces how that legal lie became a psychological one — the voice that makes us doubt our own experience.</p>
+          <p class="card-opening">"Think about the last time you heard a Black woman come forward about sexual violence. Now think about the first thing people said. Was it 'I believe you' — or was it something else first?"</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="script-card" onclick="openScript('s7')">
+        <div class="card-stripe girls"></div>
+        <div class="card-content">
+          <p class="card-number">Script 07 · Pouring In</p>
+          <h3 class="card-title">The Importance of Black Women Pouring Into Black Girls</h3>
+          <p class="card-subtitle">The cycle was never unbreakable</p>
+          <p class="card-hook">What did the first grown woman in your life say to you? This script is about the power of that — and the radical choice to give Black girls what so many of us never got: softness, seen-ness, truth.</p>
+          <p class="card-opening">"Think about the first thing a grown woman said to you as a little Black girl. Was it 'you are brilliant, you are capable' — or was it something about how you were dressed?"</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="script-card" onclick="openScript('s8')">
+        <div class="card-stripe prep"></div>
+        <div class="card-content">
+          <p class="card-number">Script 08 · Prep Schools & Respectability</p>
+          <h3 class="card-title">Prep Schools & Respectability — How Elite Education Teaches Black Girls Who to Be</h3>
+          <p class="card-subtitle">Access without belonging is its own kind of exile</p>
+          <p class="card-hook">They gave us the blazers, the AP classes, the college counselors. They gave us the keys to every door. What they didn't give us was permission to walk in as ourselves. This script is about what that cost us.</p>
+          <p class="card-opening">"We were taught how to access excellence. Nobody taught us how to stay Black inside of it."</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 9 -->
+      <div class="script-card" onclick="openScript('s9')">
+        <div class="card-stripe fashion"></div>
+        <div class="card-content">
+          <p class="card-number">Script 09 · The Fashion Machine</p>
+          <h3 class="card-title">The Fashion Machine — Who Controls What Black Girls See & What That Costs Them</h3>
+          <p class="card-subtitle">We are not a trend. We are not an inclusion moment.</p>
+          <p class="card-hook">Before you get dressed in the morning, the fashion industry has already told you what beauty looks like — and for most of its history, it did not look like us. This script is about the mirror, and what happens when you can never see yourself in it.</p>
+          <p class="card-opening">"Every morning, before we even choose what to wear, the fashion industry has already told us what beauty looks like. And for most of its history, it did not look like us."</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+      <!-- CARD 10 -->
+      <div class="script-card" onclick="openScript('s10')">
+        <div class="card-stripe enough"></div>
+        <div class="card-content">
+          <p class="card-number">Script 10 · What Is Enough</p>
+          <h3 class="card-title">What Is Enough — The Courage to Speak, Not Just to Be Present</h3>
+          <p class="card-subtitle">We got in. Now we need to be heard.</p>
+          <p class="card-hook">We did everything they asked. We got in. And then we looked around and realized: being in the room was never going to be enough if we couldn't open our mouths. This final script is about voice — the next, necessary act of liberation.</p>
+          <p class="card-opening">"We got in. We did what they said. We worked harder, smiled wider, asked for less. And then we looked around and realized — being here was never going to be enough."</p>
+          <span class="card-cta">Read Full Script →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<div class="manifesto-section" id="manifesto">
+  <div class="manifesto-inner">
+    <p class="section-label" style="color:var(--pink-rose); margin-bottom:3rem;">The Manifesto</p>
+    <span class="manifesto-word" id="m1">You are not</span>
+    <span class="manifesto-word" id="m2"><em>a stereotype.</em></span>
+    <div class="manifesto-divider"></div>
+    <span class="manifesto-word" id="m3">Your desires are <em>valid.</em></span>
+    <div class="manifesto-divider"></div>
+    <span class="manifesto-word" id="m4">Your boundaries are <em>sacred.</em></span>
+    <div class="manifesto-divider"></div>
+    <span class="manifesto-word" id="m5">Your pleasure <em>matters.</em></span>
+    <div class="manifesto-divider"></div>
+    <p class="manifesto-truth" id="mt1">The work of liberation isn't about proving you're not a Jezebel —<br/>it's about refusing to let that lie define you at all.</p>
+    <br/><br/>
+    <p class="manifesto-truth" id="mt2">Understanding what was handed to you — and where it came from — isn't a lack of faith.<br/>It's the first step to being free.</p>
+    <br/><br/>
+    <p class="manifesto-truth" id="mt3">Pour into them like you mean it. Because they are listening.<br/>They always have been.</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="section-label">About This Study</p>
+      <h2>What This Is, And Why It Matters</h2>
+      <p>This project is an independent study created by Shaiyan Sanchez. Originally I was trying to examine the tensions between Black women reaching sexual liberation and enjoying their own sexual pleasure. One of the sidetracks taken in reaching that overarching question was the history. I sat with my faculty advisor and great mentor and shared my ideas. She asked me if I knew what the Jezebel stereotype was and I had no clue. From there this project rose.</p>
+      <p>I learned so much that contextualized a lot of my own realities and experiences. I wanted to create a project that spoke to young Black women in my communities who haven't heard of this. As Black women navigating a world of white supremacy, capitalism, racism and all the isms — it is important to not let that hold power over us. To allow ourselves to live, to be uniquely us.</p>
+      <p>Let's educate ourselves, our community, and pour into each other. That's where our power lies.</p>
+    </div>
+    <div>
+      <p class="section-label">Themes Across the Study</p>
+      <ul class="themes-list">
+        <li><div class="theme-dot"></div><div><span class="theme-name">Historical Construction</span>How the Jezebel myth was deliberately built to justify exploitation — and why that history is still largely unknown inside the Black community itself.</div></li>
+        <li><div class="theme-dot"></div><div><span class="theme-name">The White Gaze</span>How whiteness as a standard — not just as people — became internalized, showing up in Black women's most intimate moments.</div></li>
+        <li><div class="theme-dot"></div><div><span class="theme-name">Religion & Respectability</span>How the church inherited the stereotype and encoded it in the language used to police Black girls' bodies — and how elite education did the same.</div></li>
+        <li><div class="theme-dot"></div><div><span class="theme-name">Fatherhood & Protection</span>How the deliberate dismantling of Black fatherhood left Black daughters without the first mirror of their own worth.</div></li>
+        <li><div class="theme-dot"></div><div><span class="theme-name">Violation & Disbelief</span>How the Jezebel stereotype was the original legal justification for denying Black women the right to say no — and how that doubt lives on.</div></li>
+        <li><div class="theme-dot"></div><div><span class="theme-name">Intergenerational Healing</span>The radical act of Black women choosing to give what they were never given — and what that means for the next generation.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PERSISTENT TAGLINE -->
+<div class="tagline-bar">
+  <p><em>You are not a stereotype.</em> Your desires are valid. Your boundaries are sacred. <em>Your pleasure matters.</em></p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-title">Unsilenced</p>
+  <p>A study in what was taken. A practice in taking it back.</p>
+  <p class="footer-mono">Independent Study · Shaiyan Sanchez · 2026</p>
+</footer>
+
+</div><!-- end home page -->
+
+
+<!-- ====== RESOURCES PAGE ====== -->
+<div class="page" id="page-resources">
+
+<div class="resources-page">
+  <div class="resources-hero">
+    <p class="section-label" style="color:var(--pink-rose);">Go Deeper</p>
+    <h1>Resources</h1>
+    <p>Books, articles, podcasts, and the voices of Black women doing this work. Every resource here was chosen to help you understand, heal, and speak.</p>
+  </div>
+
+  <div class="resources-tabs">
+    <button class="res-tab active" onclick="showResPanel('books')">Books</button>
+    <button class="res-tab" onclick="showResPanel('podcasts')">Podcasts</button>
+    <button class="res-tab" onclick="showResPanel('texts')">Articles</button>
+    <button class="res-tab" onclick="showResPanel('voices')">Voices in the Field</button>
+  </div>
+
+  <div class="resources-content">
+
+    <!-- BOOKS -->
+    <div class="res-panel active" id="panel-books">
+      <p class="res-category-label">Essential Reading</p>
+      <div class="res-grid">
+
+        <div class="res-item">
+          <p class="res-item-type">Book · Spirituality & Healing</p>
+          <p class="res-item-title">Sacred Woman: A Guide to Healing the Feminine Mind, Body and Soul</p>
+          <p class="res-item-author">Queen Afua</p>
+          <p class="res-item-desc">A transformative guide rooted in African spiritual tradition that speaks directly to Black women's healing — body, mind, and ancestral memory. A cornerstone text for understanding liberation as a sacred, embodied practice.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Book · Media Studies & Race</p>
+          <p class="res-item-title">Reading Pornography and Race</p>
+          <p class="res-item-author">Jennifer Nash</p>
+          <p class="res-item-desc">Nash's analysis examines how Black women's bodies are constructed and consumed in pornography — and what that means for identity, pleasure, and the white gaze. A rigorous and necessary read for anyone studying Black women's sexuality in media.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Essay · Feminist Theory</p>
+          <p class="res-item-title">Uses of the Erotic: The Erotic as Power</p>
+          <p class="res-item-author">Audre Lorde, 1978</p>
+          <p class="res-item-desc">Lorde's landmark essay argues that the erotic — pleasure, desire, deep feeling — is not a source of shame but a source of power and self-knowledge for women. A counterweight to everything this study excavates, and one of the most important texts in Black feminist thought.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Book · Anti-Racism</p>
+          <p class="res-item-title">White Fragility: Why It's So Hard for White People to Talk About Racism</p>
+          <p class="res-item-author">Robin DiAngelo, 2018</p>
+          <p class="res-item-desc">DiAngelo's examination of how white discomfort functions to shut down conversations about race — essential context for understanding why the truths at the center of this study are so rarely spoken aloud in mixed spaces.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Book · Black Feminism & Politics</p>
+          <p class="res-item-title"><a href="https://marcusbooks.com/book/9781608468553?ic_referral=Y3vA1n4hvQZAqzBbGQFfwr-DxsqgqKV96sQfSkyAfbwwM5p5NB6ZaxBmpFDsDnRW7LyxCzDj_42LgSB2-D9hBn5apPMPZrwx3N2U6Q" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">How We Get Free: Black Feminism and the Combahee River Collective</a></p>
+          <p class="res-item-author">Keeanga-Yamahtta Taylor (Editor)</p>
+          <p class="res-item-desc">A powerful collection tracing the legacy of the Combahee River Collective — the radical Black feminist organization that insisted liberation must be intersectional. Essential reading for understanding the roots of Black feminist thought and political organizing.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Book · Black Panther Party History</p>
+          <p class="res-item-title">Comrade Sisters: Women of the Black Panther Party</p>
+          <p class="res-item-author">Ericka Huggins & Stephen Shames</p>
+          <p class="res-item-desc">A powerful tribute to the women who built, sustained, and defined the Black Panther Party — told through Stephen Shames' photographs and Ericka Huggins' words. A recovery of the women whose labor and courage shaped one of the most significant liberation movements in American history.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Book · Race, Gender & American History</p>
+          <p class="res-item-title"><a href="https://marcusbooks.com/book/9780688146504?ic_referral=k9rKJUFczfasTQnaXbpkXnjcqeTn87Itl2r9RaS8U44wMy0mX3UiVeSZ3awdaLZ3wpSTTP7OacJXm31skNSxsXIs0hA1tjh1sz-Npg" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">When and Where I Enter: The Impact of Black Women on Race and Sex in America</a></p>
+          <p class="res-item-author">Paula J. Giddings</p>
+          <p class="res-item-desc">A landmark work of Black women's history — tracing the ways Black women have shaped American politics, civil rights, and feminist movements from the 19th century to the present. Essential context for understanding Black women as architects of their own liberation.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Book · Black Feminist History</p>
+          <p class="res-item-title"><a href="https://marcusbooks.com/book/9780393357622?ic_referral=gVjNpDL2JlRBTRTt2drx1s7NJ-xmp_GyZBWYbqh56IUwM8brTCSni-qXLAu4Q3et4n_ayMsRPerBK7mArLhninp5XotzJbFdgYPrdA" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Wayward Lives, Beautiful Experiments: Intimate Histories of Riotous Black Girls, Troublesome Women, and Queer Radicals</a></p>
+          <p class="res-item-author">Saidiya Hartman</p>
+          <p class="res-item-desc">Hartman's groundbreaking work recovers the intimate lives of Black women and girls in early 20th century American cities — their refusals, their pleasures, their attempts to remake the world on their own terms. A stunning act of radical history-telling.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Autobiography · Black Liberation</p>
+          <p class="res-item-title"><a href="https://marcusbooks.com/book/9781556520747?ic_referral=govarsDkcnkB-tbhBny0ZiwAwpu03lenYiLZPX69BeEwM7p4MrG-oVEGG2s3ql1miRrUQeA_rBr1OkQv3mNkQv3FMYUapb21_oYK3g" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Assata: An Autobiography</a></p>
+          <p class="res-item-author">Assata Shakur</p>
+          <p class="res-item-desc">The autobiography of revolutionary Black liberation activist Assata Shakur — a first-person account of resistance, state violence, survival, and what it means for a Black woman to claim her own story in a system designed to silence her.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PODCASTS -->
+    <div class="res-panel" id="panel-podcasts">
+      <p class="res-category-label">Tune In</p>
+      <div class="res-grid">
+
+        <div class="res-item">
+          <p class="res-item-type">Podcast</p>
+          <p class="res-item-title">Revolutionary Baddies</p>
+          <p class="res-item-desc">A podcast centering Black women's liberation, radical joy, and unapologetic self-definition. Conversations that refuse to shrink — exactly the energy this study was built to amplify.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Podcast</p>
+          <p class="res-item-title"><a href="https://www.blackgirlsheal.org/podcast" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Black Girls Heal</a></p>
+          <p class="res-item-desc">A podcast dedicated to helping Black women heal from trauma, toxic relationships, and the unique wounds that come with navigating a world not built for their fullness. Honest, nurturing, and deeply necessary.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Podcast</p>
+          <p class="res-item-title"><a href="https://hellodrjoy.com" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Therapy for Black Girls</a></p>
+          <p class="res-item-desc">Dr. Joy Harden Bradford's acclaimed podcast making mental health topics accessible and relevant for Black women — breaking down stigma and centering healing with warmth and clinical expertise.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Podcast</p>
+          <p class="res-item-title"><a href="https://podcasts.apple.com/us/podcast/black-women-deserve/id1789807717" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Black Women Deserve</a></p>
+          <p class="res-item-desc">A podcast grounded in the radical premise that Black women deserve — rest, care, joy, and everything the world has withheld. Affirming conversations about what it looks like to stop settling.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Podcast</p>
+          <p class="res-item-title"><a href="https://podcasts.apple.com/us/podcast/affirmations-for-black-girls/id1579248838" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Affirmations for Black Girls</a></p>
+          <p class="res-item-desc">Daily affirmations and encouragement created specifically for Black girls and women — a gentle, consistent reminder of worth, power, and the right to take up space.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Podcast</p>
+          <p class="res-item-title"><a href="https://podcasts.apple.com/us/podcast/cultivating-h-e-r-space-uplifting-conversations-for/id1447793202" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Cultivating H.E.R. Space</a></p>
+          <p class="res-item-desc">Uplifting conversations for Black women navigating health, empowerment, and resilience — grounded in community care and the understanding that Black women's wellness is a revolutionary act.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Podcast</p>
+          <p class="res-item-title"><a href="https://open.spotify.com/show/4NcLAK5zkmjhniiZScfKQ3" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Listen on Spotify</a></p>
+          <p class="res-item-desc">An additional audio resource available on Spotify — centering Black women's voices, stories, and pathways to healing and liberation.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ARTICLES & TEXTS -->
+    <div class="res-panel" id="panel-texts">
+      <p class="res-category-label">Read the Work</p>
+      <div class="res-grid">
+
+        <div class="res-item">
+          <p class="res-item-type">Online Archive · History & Analysis</p>
+          <p class="res-item-title">The Jezebel Stereotype</p>
+          <p class="res-item-author">Jim Crow Museum of Racist Memorabilia, Ferris State University</p>
+          <p class="res-item-desc">A comprehensive historical resource tracing the origins and evolution of the Jezebel stereotype — how it was constructed, how it functioned, and how it continues to operate today. Essential context for the foundation of this entire study.</p>
+          <a href="https://jimcrowmuseum.ferris.edu/jezebel/index.htm" target="_blank" style="display:inline-block; margin-top:0.75rem; font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--pink-dark); border-bottom:1px solid var(--pink-blush); padding-bottom:2px; text-decoration:none;">Visit Archive →</a>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Article · Media & Culture</p>
+          <p class="res-item-title">The Jezebel Stereotype and Hip-Hop</p>
+          <p class="res-item-author">The Prindle Institute for Ethics</p>
+          <p class="res-item-desc">An examination of how hip-hop culture has inherited, reinforced, and sometimes contested the Jezebel stereotype — and what that means for Black women navigating both the art form they love and the images it produces of them.</p>
+          <a href="https://www.prindleinstitute.org/2019/12/the-jezebel-stereotype-and-hip-hop/" target="_blank" style="display:inline-block; margin-top:0.75rem; font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--pink-dark); border-bottom:1px solid var(--pink-blush); padding-bottom:2px; text-decoration:none;">Read Article →</a>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Article · Psychology & Development</p>
+          <p class="res-item-title">The Burden of Early Maturity: We're Not So "Fast" After All</p>
+          <p class="res-item-author">Psychology Today</p>
+          <p class="res-item-desc">A psychological unpacking of the "fast" label applied to Black girls — interrogating how the adultification of Black girlhood strips children of innocence and protection, and how that label follows women into adulthood as shame they were never meant to carry.</p>
+          <a href="https://www.psychologytoday.com/us/blog/culturally-rooted/202502/the-burden-of-early-maturity-were-not-so-fast-after-all" target="_blank" style="display:inline-block; margin-top:0.75rem; font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--pink-dark); border-bottom:1px solid var(--pink-blush); padding-bottom:2px; text-decoration:none;">Read Article →</a>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Article · History & Analysis</p>
+          <p class="res-item-title">Mammy, Jezebel, and the Stereotypes Fueling Misogynoir</p>
+          <p class="res-item-author">Bahá'í Teachings</p>
+          <p class="res-item-desc">An incisive look at the twin archetypes — Mammy and Jezebel — that have been used to contain and control Black women's identities, and how these stereotypes continue to operate as engines of misogynoir in contemporary life.</p>
+          <a href="https://bahaiteachings.org/mammy-jezebel-stereotypes-fueling-misogynoir/" target="_blank" style="display:inline-block; margin-top:0.75rem; font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--pink-dark); border-bottom:1px solid var(--pink-blush); padding-bottom:2px; text-decoration:none;">Read Article →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VOICES IN THE FIELD -->
+    <div class="res-panel" id="panel-voices">
+      <p class="res-category-label">Black Women Working in the Field</p>
+      <div class="res-grid">
+
+        <div class="res-item">
+          <p class="res-item-type">Researcher · Psychology & Sexuality</p>
+          <p class="res-item-title">Dr. Kay Coghill</p>
+          <p class="res-item-desc">A scholar and practitioner whose work centers Black women's sexual health, wellness, and pleasure. Dr. Coghill brings clinical and cultural expertise to the conversation about what it means for Black women to heal and inhabit their full erotic selves.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Researcher · Sexual Health Education</p>
+          <p class="res-item-title">Shemeka Thorpe, PhD</p>
+          <p class="res-item-desc">A nationally recognized sex researcher whose work focuses specifically on Black women's sexual satisfaction, communication, and agency. Dr. Thorpe's research confronts the silence and shame that surround Black women's pleasure and replaces it with data, affirmation, and voice.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Researcher · Counseling Psychology</p>
+          <p class="res-item-title">Candice Hargons, PhD</p>
+          <p class="res-item-desc">A counseling psychologist and researcher whose work examines sexual liberation, racial trauma, and the psychological wellbeing of Black women. Dr. Hargons studies what it means for Black women to claim pleasure and freedom in a world that has historically denied them both.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Scholar · Public Health</p>
+          <p class="res-item-title"><a href="https://publichealth.jhu.edu/departments/international-health/people/students/student-profile-deja-knight" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Deja Knight</a></p>
+          <p class="res-item-desc">A public health scholar at Johns Hopkins whose research engages the intersections of race, gender, and health equity — bringing a rigorous lens to the systems that shape Black women's lives and wellbeing.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Advocate · Community Leadership</p>
+          <p class="res-item-title"><a href="https://bwwla.org/about/team/tyla-adams/" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Tyla Adams</a></p>
+          <p class="res-item-desc">A community leader and advocate with Black Women for Wellness, working at the forefront of health justice and empowerment for Black women and girls in Los Angeles and beyond.</p>
+        </div>
+
+        <div class="res-item">
+          <p class="res-item-type">Researcher · Race & Gender Studies</p>
+          <p class="res-item-title"><a href="https://www.yorku.ca/research/tubman/profile/isabella-akaliza/" target="_blank" style="color:var(--brown-deep); text-decoration:none; border-bottom:1px solid var(--pink-blush);">Isabella Akaliza</a></p>
+          <p class="res-item-desc">A researcher affiliated with York University's Harriet Tubman Institute, whose work centers the experiences and scholarship of Black women at the intersection of race, gender, and liberation.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- end resources-content -->
+</div><!-- end resources-page -->
+
+<!-- PERSISTENT TAGLINE -->
+<div class="tagline-bar">
+  <p><em>You are not a stereotype.</em> Your desires are valid. Your boundaries are sacred. <em>Your pleasure matters.</em></p>
+</div>
+
+<footer>
+  <p class="footer-title">Unsilenced</p>
+  <p>A study in what was taken. A practice in taking it back.</p>
+  <p class="footer-mono">Independent Study · Shaiyan Sanchez · 2026</p>
+</footer>
+
+</div><!-- end resources page -->
+
+
+<!-- ====== SCRIPT OVERLAY ====== -->
+<div class="script-overlay" id="overlay" onclick="closeIfBg(event)">
+<div class="script-modal">
+  <button class="modal-close" onclick="closeScript()">✕ Close</button>
+  <div id="script-content"></div>
+</div>
+</div>
+
+
+<script>
+// Page navigation
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if (page === 'resources') {
+    document.getElementById('nav-resources').classList.add('active');
+  }
+  window.scrollTo(0, 0);
+}
+
+function smoothScrollTo(id) {
+  setTimeout(() => {
+    const el = document.querySelector(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }, 80);
+}
+
+// Resources tabs
+function showResPanel(panel) {
+  document.querySelectorAll('.res-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.res-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + panel).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Script data
+const scripts = {
+  s1: {
+    label: 'Script 01 · The Historical Wound',
+    title: 'The Jezebel Stereotype — A Historical Wound on Black Women\'s Sexuality',
+    subtitle: 'From the auction block to the internal algorithm',
+    content: `
+      <p>When you hear the phrase <strong>"sexual liberation,"</strong> who do you picture? What does she look like? What is she wearing? And here's the real question: <strong>is she Black?</strong></p>
+      <p>The Jezebel stereotype didn't start with social media, music videos, or reality TV. <strong>It started on slave auction blocks.</strong> It was a deliberate creation, a lie told so many times it became embedded in our collective consciousness.</p>
+      <p>During slavery, white enslavers needed to justify the rape and sexual exploitation of Black women. So they created a myth: that Black women were naturally hypersexual, promiscuous, and always willing. <strong>The Jezebel.</strong> This wasn't about truth, it was about power. It was about creating a narrative where Black women could never be violated because they were always "asking for it."</p>
+      <p>The Victorian era added another layer. While white women were being placed on pedestals of purity and modesty – needing protection, deserving respect – Black women were excluded from that protection entirely. We weren't allowed to be innocent. We weren't allowed to be victims. <strong>Our bodies were public property,</strong> and the Jezebel stereotype made sure everyone believed we wanted it that way.</p>
+      <p>Fast forward to today. The Jezebel is still here; she's just wearing different fabrics during different generations.</p>
+      <p>She shows up when a Black woman's outfit is called "inappropriate" while her white coworker wears the same thing without comment. She shows up when Black girls are suspended from school for dress code violations at higher rates. She shows up in the hypersexualization of Black women in the media, where our bodies are spectacle but <strong>our pleasure doesn't matter.</strong></p>
+      <p>And here's what makes it insidious: <strong>this stereotype isn't even known within the Black community, especially Black women themselves.</strong></p>
+      <div class="pull-quote">"As Black women we naturally internalize this without even knowing the history of where it stems from. We police ourselves. We ask: Am I being too much? If I express my desires, will I be seen as a whore? If I enjoy sex openly, am I the problem and undeserving?"</div>
+      <p>We're constantly navigating a minefield where our sexuality is never just ours. It's always being watched, judged and measured against a centuries-old lie.</p>
+      <p>Sexual liberation should mean freedom. But how can we be free when we're still fighting ghosts from the past? The Jezebel stereotype has stolen something from us – our humanities, the simple right to explore our own desires <strong>without shame, without performance, without an audience and without ridicule.</strong></p>
+      <p>Understanding this history isn't about dwelling in pain. <strong>It's about naming what's been done to us so we can begin to undo it.</strong></p>
+    `
+  },
+  s2: {
+    label: 'Script 02 · The White Gaze',
+    title: 'The White Gaze — How Whiteness Polices Black Women\'s Sexuality',
+    subtitle: 'Don\'t let old white lies police Black women',
+    content: `
+      <p>Here's a question: When you think about your own sexuality, whose voice do you hear? <strong>Is it yours — or is it theirs?</strong></p>
+      <p>Whiteness doesn't just exist in people. It exists as a lens, a standard, a measuring stick for what's acceptable. And when it comes to sexuality, that lens has always alienated Black women's bodies for centuries.</p>
+      <p>Scholar <strong>Jennifer Nash</strong> writes about how visual displays of Black bodies <em>"secured white privilege and conferred sexual pleasure on white spectators."</em> Think about <strong>Sarah Baartman</strong> – the Khoi woman displayed in freak shows and museums in the 1800s. White audiences paid to gawk at her body and touch her. She wasn't human to them. She was a spectacle. And sadly this isn't the first nor the last.</p>
+      <p>That same gaze exists today. Black women's bodies are still treated as public property. We're told we're dressed inappropriately when our natural curves fill out clothes differently. A white woman in the same outfit? <strong>Professional.</strong> Us? <strong>Provocative.</strong> Our bodies are sexualized even when we're trying to be modest.</p>
+      <p>But here's the cruelest part: we've been conditioned to see ourselves through that white gaze too. Even in our most intimate moments – in our beds, with our partners, in our own minds – whiteness is there, watching, judging.</p>
+      <div class="pull-quote">"This is what I call the omnipresence of whiteness. It's not just external oppression. It's internal colonization."</div>
+      <p>Black women measure their desirability against white standards. We wonder if our features are "too much" – our hips too wide, our skin too dark, our hair too kinky. In pornography, Black women are often depicted through what Nash calls <em>"the logic that underpins hardcore"</em>: the idea that we find pleasure in injury, that we'll moan through anything, that our pain is performance.</p>
+      <p>We internalize that. We perform for our partners instead of experiencing pleasure for ourselves. We ask <strong>"Did he like it?"</strong> before we ask <strong>"Did I like it?"</strong> We accept less, tolerate more, and silence our own needs because somewhere deep down, we've been taught that <strong>our pleasure doesn't matter — only theirs does.</strong></p>
+      <p>This isn't just about sex. It's about autonomy. It's about the right to exist in our bodies on our own terms, to feel desire without translating it through whiteness first.</p>
+      <p>True sexual liberation for Black women can't happen while we're still being watched by the white gaze – external or internalized. We have to reject the idea that our sexuality exists for anyone's consumption but our own. We have to ask ourselves: <strong>What would it feel like to desire freely? To explore pleasure without an audience?</strong> That's the work. That's the liberation.</p>
+    `
+  },
+  s3: {
+    label: 'Script 03 · The Jezebel Today',
+    title: 'The Jezebel Today — How an Old Lie Still Shapes Our Reality',
+    subtitle: 'She didn\'t leave. She evolved.',
+    content: `
+      <p>Let me tell you what the Jezebel stereotype looks like in 2026. <strong>She's in the way people swipe left. She's in the whispers at family gatherings. She's in the back of your mind when you're deciding whether to text him back.</strong></p>
+      <p><strong>The Jezebel didn't die. She evolved.</strong></p>
+      <p>She's in the way Black women are fetishized on dating apps – reduced to body parts, expected to be "freaky" by default. She's in the way we're hypersexualized in music and film but rarely shown as deserving of tenderness or romance. Think about it: how often do you see Black women in the media experiencing soft, sensual, reciprocal pleasure versus being objectified?</p>
+      <p>She's in the double standards. <strong>Megan Thee Stallion</strong> talks about her sexuality and gets called a "hoe." A white pop star does the same and she's "empowered." We're judged more harshly for sexual expression while simultaneously being expected to be more sexual.</p>
+      <p>She's also in our relationships. Black women report questioning whether their partners truly desire them or just the fantasy of them. We wonder: Does he see me, or does he see me as an object that needs to be conquered? Am I a person to him, or a piece of meat?</p>
+      <div class="pull-quote">"The Jezebel makes intimacy non-existent for us and leaves us with no sense of personhood. It makes every sexual encounter a confusion of who we are and what we want and how we see ourselves."</div>
+      <p>Here's what doesn't get talked about enough: <strong>the emotional aftermath.</strong></p>
+      <p>Some of us rush into sexual encounters, trying to prove we're confident and liberated – performing the very stereotype we're trying to escape. Others freeze up entirely, terrified of confirming in someone else's mind as someone they aren't.</p>
+      <p>We ask ourselves: <em>"Am I moving too fast? Do I look fat in this angle? Is my ass big enough? Am I wet enough? I haven't shaved. Was I too loud?"</em> We're never just present. We're always performing or policing.</p>
+      <p>And in long-term relationships? The Jezebel creeps in there too. We struggle to communicate our needs because we're afraid of being "too much." We fake orgasms to protect our partner's ego. We measure our sexual worth by <strong>his</strong> satisfaction, not our own.</p>
+      <p><strong>This isn't liberation. This is survival.</strong></p>
+      <p>The Jezebel stereotype is over 400 years old, but she still has a chokehold on Black women's sexuality. She affects who we date, how we love, and whether we even believe we deserve pleasure.</p>
+      <p>But here's the truth: <strong>you are not a stereotype. Your desires are valid. Your boundaries are sacred. Your pleasure matters.</strong> And the work of liberation isn't about proving you're not a Jezebel – it's about refusing to let that lie define you at all.</p>
+      <p>We deserve to be seen as whole, complex, human. And it starts with seeing ourselves that way first.</p>
+    `
+  },
+  s4: {
+    label: 'Script 04 · Faith & The Stereotype',
+    title: 'Amen to What, Exactly? — How Religion Shaped the Jezebel Stereotype',
+    subtitle: 'Scripture weaponized. Faith reclaimed.',
+    content: `
+      <p>Think about the last time someone called a girl you know <strong>"fast."</strong> Where were you? Were you at school? At a family cookout? At church? And did anyone stop to ask — fast compared to what? Fast according to who?</p>
+      <p>Religion and the Jezebel stereotype have been tangled together since the beginning. <strong>And not by accident.</strong></p>
+      <p>When European colonizers needed to justify the rape and exploitation of enslaved Black women, they didn't just use law. <strong>They used Scripture.</strong> They pointed to the biblical Jezebel – a queen painted as wicked, seductive, corrupting – and said: see, some women are just born this way. They took a story from the Bible and turned it into a blueprint for dehumanization. If Black women were naturally immoral, naturally hypersexual, naturally Jezebel – then nothing done to them was really a sin. It was just nature taking its course.</p>
+      <p>That theology didn't stay in the slave quarters. <strong>It walked into the church.</strong></p>
+      <p>Not always loudly. It showed up in the language. Who got called virtuous and who got called fast? Sunday school teachers who taught girls to cover up so they wouldn't be a <em>"stumbling block"</em> — placing the responsibility for men's thoughts directly on the bodies of little girls. In the sermons about purity that were always, somehow, only about us. Our clothes. Our attitude. Our mouth. <strong>Never about the people who hurt us.</strong></p>
+      <div class="pull-quote">"Here's what that does to a girl growing up in the church: you learn early that your body is a problem. Not a gift — a liability."</div>
+      <p>Something to manage, minimize, keep contained so you don't accidentally become what they're afraid you already are. You police yourself before anyone else gets the chance. You sit a certain way. You laugh a certain way. You dress for the mothers in white who are always watching, always measuring.</p>
+      <p>And if something happens to you – if someone hurts you – the first question isn't who did this. Or what's wrong with them. It's <em>what were you doing? What were you wearing? Why were you there?</em> As if the Jezebel label is something you have to disprove before your pain is allowed to count.</p>
+      <p>Black women have been navigating this inside the very institutions that were supposed to protect us. The same church that held us through generational trauma also handed us <strong>a generational shame.</strong> And so many of us are still carrying it – still asking whether we're too much, still shrinking, still auditioning for respectability in spaces that should have loved us without conditions.</p>
+      <p>This isn't about faith. <strong>Faith has carried Black women through the unsurvivable.</strong> This is about what happens when an institution inherits a lie and never stops to question it.</p>
+      <p>The Jezebel stereotype needed religion to survive. It needed a moral framework that made Black women complicit in their own diminishment. And for a long time, it worked.</p>
+      <p>But you are allowed to love God and interrogate the structures built in His name. You are allowed to ask hard questions of the institutions you were raised in. Understanding what was handed to you and where it came from isn't a lack of faith.</p>
+      <p><strong>It's the first step to being free.</strong></p>
+    `
+  },
+  s5: {
+    label: 'Script 05 · The Empty Chair',
+    title: 'The Empty Chair — Black Fatherhood & the Jezebel Stereotype',
+    subtitle: 'The breaking of Black family households — and what it cost her',
+    content: `
+      <p>Think about the first man who ever made you feel safe. Now think about all the girls and women who never had that person there — or was there, but never fully. <strong>How did that shape what you accepted from every man that came after?</strong></p>
+      <p>The absence of Black fathers in Black daughters' lives is one of the most talked about and least understood dynamics in our community. And before we go any further — <strong>this isn't a statistic slideshow. This is a history lesson.</strong></p>
+      <p>During slavery, <strong>Black fatherhood was made illegal. Not metaphorically.</strong> Enslaved men had no parental rights. Their children could be sold at any moment. The entire system was designed to sever Black men from their families because a man who can protect his daughter is a man who interrupts the cycle of exploitation.</p>
+      <p>That didn't end at emancipation. It evolved. Refused entry to skilled jobs and college, mass incarceration, redlining, economic exclusion. Each one a new mechanism pulling Black fathers out of the home. The absence so many of us grew up with has a long, intentional history behind it. <strong>That matters. Hold that before anything else.</strong></p>
+      <p>But here's what we don't talk about enough: what that absence – or that complicated presence – does to a Black girl's relationship with the Jezebel stereotype.</p>
+      <div class="pull-quote">"A father is often the first man in a girl's life. When he's present and loving, he gives her something invaluable: the experience of being seen by a man without having to perform for it."</div>
+      <p>Without earning it with her body, her silence, or her smallness. That becomes her baseline. Her reference point for what she deserves.</p>
+      <p>When that's missing, she goes looking for it. And the world is ready.</p>
+      <p>And sometimes the father is physically there but still carrying something broken inside him – calling his daughter fast before she understands what the word means. Policing her body out of fear and shame rather than love and protection. Teaching her, without words, that her sexuality is something dangerous that lives inside her. Something she is responsible for controlling for everyone else's comfort.</p>
+      <p>That's not protection. That's the Jezebel stereotype operating inside the home that was supposed to be the one safe place.</p>
+      <p>Some Black daughters grow up believing that love and control are the same thing. That a man watching you closely means he cares about you. That shrinking is the price of being kept safe. We carry that into our adult relationships, into our bodies, into the way we move through the world.</p>
+      <p>The Jezebel stereotype thrives where Black girls are unseen. And one of the most powerful interruptions to that stereotype is a father or a father figure who looks at his daughter and says I see you. Not what the world is going to try to make you. You.</p>
+      <p>That's not a small thing. For a Black girl, that can be everything – an invitation to be free, to be whole and explore what love is, sexual intimacy, pleasure and fulfillment.</p>
+    `
+  },
+  s6: {
+    label: 'Script 06 · When No One Believed Her',
+    title: 'When No One Believed Her — The Raping of Black Women',
+    subtitle: 'The blueprint of rape culture — and the right to be believed',
+    content: `
+      <p>Think about the last time you heard a Black woman come forward about sexual violence. Now think about the first thing people said. Was it <em>"I believe you"</em> — or was it <strong>"Are you sure that happened?"</strong></p>
+      <p><strong>The Jezebel stereotype was not a side effect of rape culture. It was the blueprint for it.</strong></p>
+      <p>When enslaved Black women were being raped by enslavers routinely, systematically, economically and with zero legal consequence — the law needed a reason to not call it rape. So the Jezebel myth was constructed. Black women were said to be naturally hypersexual. Insatiable. Always willing. Their bodies were described as different — as feeling less, wanting more, being incapable of real violation. <strong>If a woman is always "asking for it," then nothing that happens to her is really a crime.</strong></p>
+      <p>That wasn't a fringe belief. <strong>It was written into law.</strong> Enslaved Black women had no legal protection from sexual violence. Their rape was literally not recognized as rape. And that legal precedent — that Black women's bodies exist in a different moral and physical category — <strong>has never been fully overturned.</strong></p>
+      <p>Today, Black women are more likely to experience sexual violence and less likely to report it. Less likely to be believed when they do. Less likely to see any justice come from it.</p>
+      <div class="pull-quote">"And when we do come forward, the Jezebel is right there in the room — in the questions about what we were wearing, where we were going, what our history was — as if we have to disprove the stereotype before our pain is allowed to be real."</div>
+      <p>Here's what that does internally: some of us stop naming it at all. We call it a situation. We call it complicated. We protect the people who hurt us because we've already run the possible outcome and tend to feel like <strong>nobody is going to believe us anyway</strong> — so why add the weight of not being believed on top of everything else?</p>
+      <p>Some of us don't even recognize it as a violation because we have been so thoroughly taught that our bodies are available, that desire is projected onto us whether we feel it or not, that we start to question our own experience. <em>Was that really what I think it was? Or is that just how it goes for someone like me?</em></p>
+      <p><strong>That voice, that doubt — is not yours. It was put there on purpose.</strong></p>
+      <p>Black women deserve communities that believe them. Fully. First. Without asking them to prove they weren't being a Jezebel before the pain gets to count.</p>
+      <p>Because every time we ask <em>are you sure</em> before we ask <em>are you okay</em>, we are doing the work of the stereotype — not the work for our girls and women.</p>
+      <p><strong>You were always allowed to say what happened to you. That right was never supposed to be taken. And we need to support each other in taking it back.</strong></p>
+    `
+  },
+  s7: {
+    label: 'Script 07 · Pouring In',
+    title: 'The Importance of Black Women Pouring Into Black Girls',
+    subtitle: 'The cycle was never unbreakable',
+    content: `
+      <p>Think about the first thing a grown woman said to you as a little Black girl. Was it <em>"you are brilliant, you are capable, you can do anything"</em> — or was it something about how you were dressed, how you were moving, how you were <strong>too much?</strong></p>
+      <p>Many of us grew up in homes and neighborhoods where the adults felt entitled to say whatever they wanted to a child and the child had no say. No rebuttal. No language to even process what was being said to her.</p>
+      <p><strong>You're fast. You're fresh. You're too grown.</strong></p>
+      <p>These weren't compliments. They were accusations. Handed to little girls who were just existing in their bodies, in their curiosity, in their becoming.</p>
+      <p>And here's what makes it more complicated — nobody was talking about any of it directly to Black younger girls. Sexuality, appearance, womanhood, self-worth, men who cannot control their lust — those conversations weren't happening. Many Black mothers raised by Baby Boomers and older Gen X women were handed silence and called it protection. Authoritarianism and called it love. <strong>Tough love was the framework.</strong> The belief was that hardening your daughter early would prepare her for a hard world.</p>
+      <p>But what it actually did was create a gap. <strong>A silence so loud that little Black girls filled it themselves with shame, with confusion, with the wrong voices.</strong></p>
+      <div class="pull-quote">"When no one tells a girl who she is, she will believe whoever speaks first."</div>
+      <p>Words become internal voices. And the internal voices of too many Black women still sound like criticism.</p>
+      <p><em>"You're too much. Cover up. Sit down. Be quiet. Don't embarrass me. Nobody wants a girl like that."</em></p>
+      <p><strong>That is not preparation. That is erosion.</strong></p>
+      <p>When a Black girl is never told that her body is hers she doesn't know how to protect it. When she's never told that her opinions have value she stops offering them. When she's called "fast" or a "whore" instead of being informed about how as a Black woman sexuality operates in a world never created for the intention of us having space in it — she carries that label into adulthood and wonders why she keeps shrinking in rooms she was built to own.</p>
+      <p>Tough love without tender love doesn't toughen a girl. It teaches her that love comes with conditions and that she has to earn softness. <strong>Tender love should be given freely.</strong></p>
+      <p>But there is another story. And it deserves to be told just as loudly.</p>
+      <p>There are Black mothers who looked at the way they were raised and decided <strong>not her. Not my daughter. Not on my watch.</strong></p>
+      <p>There are grandmothers who whispered affirmations over little girls who didn't even know what affirmations were yet. Aunties who created space for questions that couldn't be asked at home. Teachers who refused to let a quiet Black girl in the back of the room go unseen. Mentors, coaches, older sisters and community women who looked at a little girl and said <em>"I see what's in you, and I'm going to make sure you see it too."</em></p>
+      <p><strong>That is pouring in. And it changes everything.</strong></p>
+      <p>A Black girl who is told she is powerful starts to move like it. A Black girl who is taught that her voice matters starts to use it. A Black girl who is seen fully — not corrected and managed — grows up knowing she is allowed to take up space.</p>
+      <div class="pull-quote">"The cycle was never unbreakable. It was broken every time a woman chose to give what she never got."</div>
+      <p>The narratives we feed Black girls become the voices they carry for life.</p>
+      <p>So we have to be intentional. We have to choose words that build, not just warn. We have to have the conversations that feel uncomfortable so our girls don't have to figure it out alone in the dark.</p>
+      <p>Tough love has its place. But Black girls also need to be told they are enough exactly as they are, right now, <strong>before they've earned a single thing.</strong></p>
+      <p><strong>Pour into them like you mean it. Because they are listening. They always have been.</strong></p>
+    `
+  },
+  s8: {
+    label: 'Script 08 · Prep Schools & Respectability',
+    title: 'Prep Schools & Respectability — How Elite Education Teaches Black Girls Who to Be',
+    subtitle: 'Access without belonging is its own kind of exile',
+    content: `
+      <p>The blazers, the AP classes, the college counselors with Ivy League contacts. They gave us access into those spaces only <strong>without permission to walk in as ourselves and still be ourselves walking out.</strong></p>
+      <p>Some have friends who started this journey in middle school. Eleven, twelve years old, bused or boarded into prep schools and PWIs, handed a set of tools and told: <em>use these to get into rooms that were never built for you.</em></p>
+      <p>And the tools worked. We got in. We learned to code-switch before we knew there was a word for it. We learned which laugh to laugh, how to make our anger quiet, how to make our bodies smaller — not just physically, but energetically. <strong>How to make whiteness comfortable with our presence.</strong></p>
+      <div class="pull-quote">"We were taught how to access excellence. Nobody taught us how to stay Black inside of it."</div>
+      <p>There's a particular grief that lives in the bodies of Black girls who grew up in elite academic spaces. It's the grief of having every resource imaginable and still feeling like you're performing a version of yourself that was written by someone else. We were given tools for code-switching but <strong>no tools for cultural integrity.</strong> We were taught to speak the language of those spaces but never taught that our own language was just as worthy.</p>
+      <p>Respectability politics doesn't always look like policing. Sometimes it looks like praise. <em>"You're so articulate." "You're not like the others." "We don't even see you as Black."</em> And sometimes instead of saying what we truly feel — which is usually "fuck off," "that's racist" — but if I say something I have to sit and explain to a grown person how and why their remarks are inappropriate and disrespectful, so instead we smile and laugh. Because in those spaces, <strong>that was survival.</strong></p>
+      <p>What does it cost her to let her Blackness be treated as something to be transcended? We started to police ourselves. We asked: Is my hair too much? Is my music inappropriate? Am I being too loud, too emotional, <strong>too Black</strong> for this room that I worked so hard to get into?</p>
+      <p>The prep school and the PWI gave us access. <strong>But access without belonging is its own kind of exile.</strong> We are in the room and invisible at the same time.</p>
+      <p>We deserve both. The tools and the wholeness. The access and the Afro. The scholarship and the right to show up as everything we are — not <em>despite</em> our Blackness, but <em>with</em> it, <em>in</em> it, <em>through</em> it.</p>
+      <p><strong>Real education doesn't ask us to trade our identity for a seat at the table. It's time we stopped accepting that trade for the sake of "higher education."</strong></p>
+    `
+  },
+  s9: {
+    label: 'Script 09 · The Fashion Machine',
+    title: 'The Fashion Machine — Who Controls What Black Girls See & What That Costs Them',
+    subtitle: 'We are not a trend. We are not an inclusion moment.',
+    content: `
+      <p>Every morning, before we even choose what to wear, the fashion industry has already told us what beauty looks like. <strong>And for most of its history, it did not look like us.</strong></p>
+      <p><strong>Fashion is not neutral. It never has been.</strong> The people who design the clothes, direct the shoots, cast the models, and write the copy are overwhelmingly white. And when whiteness controls the image of beauty, what gets produced is a mirror that reflects only itself.</p>
+      <p>The image that goes out into the world has, for decades, carried a very specific representation: fair skin, bone-straight hair, a narrow built frame, sharp cheekbones, light eyes, features arranged in a particular European order. This is the image that gets put on billboards, in magazines, on runways. <strong>This is what the machine decided beauty meant.</strong></p>
+      <p>And we absorb it. We were never meant to see ourselves in it but we looked anyway, because that image was everywhere. It was on TV, catalogs our mothers flipped through and dolls we played with. The message was constant and it was cumulative: <strong>the standard is not you.</strong></p>
+      <div class="pull-quote">"What happens to a girl who spends her formative years consuming an image of beauty that excludes her? She learns to edit herself."</div>
+      <p>She learns that her natural hair is a problem to be solved, her skin tone a limitation to be worked around, her body a shape that needs to be altered.</p>
+      <p>We spent money we didn't have. We straightened, bleached, tucked, and contoured — not for ourselves, but to get closer to an image that was never designed with us in mind. <strong>And the industry profited from our insecurity. Still profits. It created the wound and sold us the bandage.</strong></p>
+      <p>When there is no diversity in the room where the decisions are made, the products of that room will always carry the imprint of that absence. Not just in who is shown, but in who is rendered invisible. In which textures are called <em>"ethnic."</em> In which skin tones are considered <em>"difficult to shoot."</em> In which bodies are called <em>"unconventional"</em> simply for existing.</p>
+      <p><strong>We are not unconventional. We are not a trend. We are not an "inclusion moment" in someone else's campaign.</strong></p>
+      <p>True representation is not a Black girl in a white brand's ad once a year. It is Black girls in the room where beauty gets defined. It is us producing the image, not just appearing in it. Until that changes, <strong>the machine will keep running and we will keep paying the cost.</strong></p>
+    `
+  },
+  s10: {
+    label: 'Script 10 · What Is Enough',
+    title: 'What Is Enough — The Courage to Speak, Not Just to Be Present',
+    subtitle: 'It is no longer enough to be in the room — now comes the courage to speak',
+    content: `
+      <p>We got in. We did what they said. We worked harder, smiled wider, and asked for less. We got in. And then we looked around and realized: <strong>being here was never going to be enough. Not for them. And not for us.</strong></p>
+      <p>For generations, the goal was access. Get the education. Get the job. Get in the room. And our mothers and grandmothers and the women before them fought ferociously for that access and <strong>broke doors down with their bare hands</strong> so we could walk through.</p>
+      <p>We honored that. We walked through. We earned our seats at tables that had been built without us in mind. We learned the rules of every space we entered, the unspoken dress codes, the acceptable levels of emotion, the particular performance of competence that made white colleagues comfortable.</p>
+      <p>We did the work. We showed up early and left late. We smiled through the microaggressions and wrote off the moments that were too small to name but too heavy to carry. We told ourselves: <em>just be so good they can't ignore you.</em></p>
+      <div class="pull-quote">"But the Jezebel stereotype — and every stereotype that tries to contain Black women — doesn't care how good we are. It is not defeated by our credentials."</div>
+      <p>It lives in the room with us, whispering that we do not belong, that we are too much, that our anger is a liability, that our voice is a threat.</p>
+      <p>So we shrank. We translated ourselves. We picked battles carefully, strategically, and exhaustingly. We asked: if I say something, will I be <strong>the angry Black woman?</strong> If I push back, will I lose what I worked so hard to get? Is this worth it? <strong>Am I worth it?</strong></p>
+      <p>That calculation — the endless, grinding math of <em>is it safe to be fully myself right now</em> — is its own kind of violence. A slow erosion. It does not leave bruises. But it leaves something.</p>
+      <p>And what we are beginning to understand, what we are beginning to say out loud to each other and to ourselves, is that <strong>presence without voice is not liberation.</strong> We can fill every room in this country and still be erased if we are not allowed to speak — or if we have been so conditioned to silence that we silence ourselves first.</p>
+      <p><strong>Enough is not getting in the room. Enough is changing what happens inside it.</strong> Enough is telling the truth about what it cost us to get here. Enough is refusing to make ourselves small one more time.</p>
+      <p>The next act of this fight is not about access. It is about voice. It is about the radical, necessary, long-overdue courage to speak — truthfully, uncensored — and the collective commitment to make sure that we say exactly how we feel and not minimize it for the sake of making whiteness comfortable.</p>
+      <p>The reality is sometimes we will have to do it standing alone — but do not let that deter you from taking action. <strong>You are worthy of being in those spaces. Your feelings matter. You are important.</strong> You have worked a million times harder to be there, so do not feel like you cannot speak your truth. That is only the omnipresence of white supremacy lingering over you, trying to make you comply.</p>
+      <p><strong>Speak anyway. That is where your liberation lives.</strong></p>
+    `
+  }
+};
+
+function openScript(id) {
+  const s = scripts[id];
+  const el = document.getElementById('script-content');
+  el.innerHTML = `
+    <p class="modal-label">${s.label}</p>
+    <h2 class="modal-title">${s.title}</h2>
+    <p class="modal-subtitle">${s.subtitle}</p>
+    <div class="script-body">${s.content}</div>
+  `;
+  const overlay = document.getElementById('overlay');
+  overlay.classList.add('active');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeScript() {
+  document.getElementById('overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeIfBg(e) {
+  if (e.target === document.getElementById('overlay')) closeScript();
+}
+
+// Manifesto scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.manifesto-word, .manifesto-truth').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.15) + 's';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
